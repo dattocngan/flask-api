@@ -4,7 +4,7 @@ from flask_jwt_extended import current_user, jwt_required
 from app.errors.handlers import bad_request
 from app.models import Users
 from app.schemas import UsersSchema
-from app.users import bp
+from app.collectors import bp
 
 # Declare database schemas so they can be returned as JSON objects
 user_schema = UsersSchema(exclude=("email", "password_hash"))

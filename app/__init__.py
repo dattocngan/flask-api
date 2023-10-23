@@ -45,18 +45,18 @@ def create_app(config_class=Config):
         limiter.init_app(app)
 
     from app.errors import bp as errors_bp
-    from app.users import bp as users_bp
-    from app.posts import bp as posts_bp
-    from app.comments import bp as comments_bp
+    from app.collectors import bp as collectors_bp
+    from app.items import bp as items_bp
+    from app.images import bp as images_bp
     from app.auth import bp as auth_bp
-    from app.tasks import bp as tasks_bp
+    from app.collections import bp as collections_bp
 
     app.register_blueprint(errors_bp)
-    app.register_blueprint(users_bp, url_prefix="/api/users")
-    app.register_blueprint(posts_bp, url_prefix="/api/posts")
-    app.register_blueprint(comments_bp, url_prefix="/api/comments")
-    app.register_blueprint(auth_bp, url_prefix="/api/auth")
-    app.register_blueprint(tasks_bp, url_prefix="/api/tasks")
+    app.register_blueprint(collectors_bp, url_prefix="/api")
+    app.register_blueprint(items_bp, url_prefix="/api")
+    app.register_blueprint(images_bp, url_prefix="/api")
+    app.register_blueprint(auth_bp, url_prefix="/api")
+    app.register_blueprint(collections_bp, url_prefix="/api")
 
     # Set the rate limit for all routes in the auth_bp blueprint to 1 per second
     limiter.limit("60 per minute")(auth_bp)

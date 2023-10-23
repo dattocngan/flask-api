@@ -2,7 +2,7 @@ from typing import Any
 from flask import request, jsonify, Response
 
 from app import db
-from app.comments import bp
+from app.images import bp
 from app.models import Comments, Posts
 from app.schemas import CommentsSchema, CommentsDeserializingSchema
 from app.errors.handlers import bad_request

@@ -4,7 +4,7 @@ from flask_jwt_extended import current_user, jwt_required
 from app import db
 from app.errors.handlers import bad_request
 from app.schemas import TasksSchema
-from app.tasks import bp
+from app.collections import bp
 
 tasks_schema = TasksSchema(many=True)
 

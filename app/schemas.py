@@ -1,42 +1,45 @@
 from app import ma
-from app.models import Users, Posts, Comments, Tasks
+from app.models import Collectors, Collections, Items, Images, Ages, Materials
 
 from marshmallow import Schema, fields
 
 
-class UsersSchema(ma.SQLAlchemyAutoSchema):
+class CollectorsSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
-        model = Users
+        model = Collectors
 
 
-class UsersDeserializingSchema(Schema):
-    username = fields.String()
+class CollectorsDeserializingSchema(Schema):
+    mobile = fields.String()
     password = fields.String()
-    first_name = fields.String()
-    last_name = fields.String()
+    fullname = fields.String()
     email = fields.Email()
+    description = fields.String()
     birthday = fields.Date()
 
 
-class PostsSchema(ma.SQLAlchemyAutoSchema):
+class ItemsSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
-        model = Posts
+        model = Items
 
 
-class PostsDeserializingSchema(Schema):
-    body = fields.String()
-
-
-class CommentsSchema(ma.SQLAlchemyAutoSchema):
+class CollectionsSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
-        model = Comments
+        model = Collections
 
 
-class CommentsDeserializingSchema(Schema):
-    body = fields.String()
-    post_id = fields.Integer()
-
-
-class TasksSchema(ma.SQLAlchemyAutoSchema):
+class ImagesSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
-        model = Tasks
+        model = Images
+
+
+class AgesSchema(ma.SQLAlchemyAutoSchema):
+    class Meta:
+        model = Ages
+
+
+class MaterialsSchema(ma.SQLAlchemyAutoSchema):
+    class Meta:
+        model = Materials
+
+
